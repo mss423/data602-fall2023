@@ -23,10 +23,6 @@ You can get more information about this period in baseball history from:
 
 You will be using data from a very useful database on baseball teams, players and seasons curated by Sean Lahman available at [http://www.seanlahman.com/baseball-archive/statistics/](http://www.seanlahman.com/baseball-archive/statistics/). The database has been made available as a `sqlite` database [https://github.com/jknecht/baseball-archive-sqlite](https://github.com/jknecht/baseball-archive-sqlite). `sqlite` is a light-weight, file-based database management system that is well suited for small projects and prototypes.
 
-You can read more about the dataset here: [http://seanlahman.com/files/database/readme2014.txt](http://seanlahman.com/files/database/readme2014.txt).
-
-You can download the `sqlite` file directly from github at [https://github.com/jknecht/baseball-archive-sqlite/raw/master/lahman2014.sqlite](https://github.com/jknecht/baseball-archive-sqlite/raw/master/lahman2014.sqlite).
-
 You will be accessing the `sqlite` database in python using the [sqlite package](https://docs.python.org/2/library/sqlite3.html). This package provides a straightforward interface to extract data from `sqlite` databases using standard SQL commands.
 
 Once you establish a connection with the `sqlite` database, you can store query results directly in a pandas dataframe using the [read_sql](http://pandas.pydata.org/pandas-docs/version/0.15.0/generated/pandas.read_sql.html) function.
@@ -38,7 +34,7 @@ For example, here's how you would tabulate total league payrolls for each year:
 import sqlite3
 import pandas
 
-sqlite_file = 'lahman2014.sqlite'
+sqlite_file = 'lahman_1871-2022.sqlite'
 conn = sqlite3.connect(sqlite_file)
 
 salary_query = "SELECT yearID, sum(salary) as total_payroll FROM Salaries WHERE lgID == 'AL' GROUP BY yearID"
@@ -78,7 +74,7 @@ Include the SQL code you used to create this relation in your writeup. Describe 
 
 #### Problem 2
 
-Write code to produce plots that illustrate the distribution of payrolls across teams conditioned on time (from 1990-2014).
+Write code to produce plots that illustrate the distribution of payrolls across teams conditioned on time (from 1990-2022).
 
 #### Question 1
 
